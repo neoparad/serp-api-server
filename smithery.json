@@ -1,0 +1,64 @@
+{
+  "name": "seo-mcp",
+  "version": "1.0.0",
+  "description": "SERP API Server for SEO analysis",
+  "main": "src/server.js",
+  "tools": [
+    {
+      "name": "_health",
+      "description": "Health check endpoint",
+      "path": "/_health",
+      "method": "GET"
+    },
+    {
+      "name": "analyze_serp",
+      "description": "Analyze a SERP (Search Engine Results Page) for a given query",
+      "path": "/api/serp/analyze",
+      "method": "GET",
+      "parameters": {
+        "query": {
+          "type": "string",
+          "description": "Search query to analyze"
+        },
+        "country": {
+          "type": "string",
+          "description": "Country code (e.g., US, JP)",
+          "default": "US"
+        },
+        "count": {
+          "type": "number",
+          "description": "Number of results to analyze",
+          "default": 10
+        }
+      }
+    },
+    {
+      "name": "research_keywords",
+      "description": "Research keywords related to a given topic or seed keyword",
+      "path": "/api/serp/keywords",
+      "method": "GET",
+      "parameters": {
+        "seed": {
+          "type": "string",
+          "description": "Seed keyword to research"
+        }
+      }
+    },
+    {
+      "name": "analyze_competitors",
+      "description": "Analyze competitors for a given keyword or domain",
+      "path": "/api/serp/competitors",
+      "method": "GET",
+      "parameters": {
+        "keyword": {
+          "type": "string",
+          "description": "Keyword to analyze competitors for"
+        },
+        "domain": {
+          "type": "string",
+          "description": "Your domain to exclude from competitors"
+        }
+      }
+    }
+  ]
+}
