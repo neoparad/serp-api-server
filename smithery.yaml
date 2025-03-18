@@ -1,4 +1,15 @@
-name: serp-api-server 
-version: 1.0.0 
-main: src/server.js 
-port: 3002 
+# Smithery.ai configuration
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    {}
+  commandFunction: |-
+    (config) => ({
+      "command": "node",
+      "args": [
+        "src/server.js"
+      ],
+      "env": {
+      }
+    })
